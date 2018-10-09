@@ -8,14 +8,23 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
 </head>
 <body>
-	<div>
-		<h1 class="city">LOADING</h1>
-		<h2 class="temp">LOADING</h2>
-		<h2 class="weather">LOADING</h2>
-	</div>
-	<div class="inputs">
-		<input type="text" name="city" id="inputCity">
-		<input type="button" onclick="getWeather()" value="submit">
+	<div class="weather-box">
+		<div class="location-chosen">
+			<div>
+				<h1 class="city-chosen">LOADING</h1>
+				<h2 class="temp-chosen">LOADING</h2>
+				<h2 class="weather-chosen">LOADING</h2>
+			</div>
+			<div class="inputs">
+				<input type="text" name="city" id="inputCity">
+				<input type="button" onclick="getWeather()" value="submit">
+			</div>
+		</div>
+		<div class="location-here">
+			<h1 class="city-here">LOADING</h1>
+			<h2 class="temp-here">LOADING</h2>
+			<h2 class="weather-here">LOADING</h2>
+		</div>
 	</div>
 	<script src="js/index.js"></script>
 </body>
