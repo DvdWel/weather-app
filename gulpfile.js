@@ -25,4 +25,4 @@ gulp.task('serve', function() {
 	gulp.watch("../weather-app/*.js").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['sass', 'serve']);
+gulp.task('default', ['sass:watch', 'serve']);

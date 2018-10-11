@@ -1,4 +1,8 @@
 .weather-box{
 	display: flex;
 	flex-direction: row;
+
+	.location-chosen{
+		margin-right: 50px;
+	}
 }
