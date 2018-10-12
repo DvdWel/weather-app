@@ -21,7 +21,7 @@ navigator.geolocation.getCurrentPosition(function(position){
 			currentTemp.innerText = Math.round(responseJson.main.temp) + " °C";
 			let icon = responseJson.weather[0].icon;
 			currentIcon.src = `//openweathermap.org/img/w/${icon}.png`
-			currentWeather.innerText = responseJson.weather[0].main;
+			currentWeather.innerText = responseJson.weather[0].description;
 		})
 		.catch(error => {
 			currentCity.innerText = "NOT FOUND";
@@ -37,6 +37,7 @@ const getWeather = () => {
 	const chosenCity = document.querySelector('.city-chosen');
 	const chosenWeather = document.querySelector('.weather-chosen');
 	const chosenIcon = document.querySelector('.icon-chosen');
+	const chosenTime = document.querySelector('.time-chosen');
 	let city = document.querySelector('#inputCity').value;
 
 	if(city == "" || city == undefined){
@@ -48,14 +49,16 @@ const getWeather = () => {
 		.then(responseJson => {
 			CONFIG = responseJson;
 			const apiKey = CONFIG.apiKey;
-			fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+			fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`)
 			.then(response => response.json())
 			.then(responseJson => {
-				chosenCity.innerText = responseJson.name;
-				chosenTemp.innerText = Math.round(responseJson.main.temp) + " °C";
-				let icon = responseJson.weather[0].icon;
+				console.log(responseJson);
+				chosenCity.innerText = responseJson.city.name;
+				chosenTemp.innerText = Math.round(responseJson.list[0].main.temp) + " °C";
+				let icon = responseJson.list[0].weather[0].icon;
 				chosenIcon.src = `//openweathermap.org/img/w/${icon}.png`
-				chosenWeather.innerText = responseJson.weather[0].main;
+				chosenWeather.innerText = responseJson.list[0].weather[0].description;
+				chosenTime.innerText = responseJson.list[0].dt_txt;
 			})
 			.catch(error => {
 				chosenCity.innerText = "NOT A CITY";
