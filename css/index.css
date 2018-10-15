@@ -1,5 +1,7 @@
 .weather-box {
   display: flex;
   flex-direction: row; }
+  .weather-box .location-here {
+    width: 50vw; }
   .weather-box .location-chosen {
     margin-right: 50px; }
