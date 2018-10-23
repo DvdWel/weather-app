@@ -1,7 +1,22 @@
+body {
+  margin: 0;
+  padding: 0; }
+
 .weather-box {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row; }
   .weather-box .location-here {
-    width: 50vw; }
+    background-image: url(../img/day.png);
+    display: none; }
   .weather-box .location-chosen {
-    margin-right: 50px; }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../img/night.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh; }

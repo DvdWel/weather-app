@@ -29,7 +29,9 @@ navigator.geolocation.getCurrentPosition(function(position){
 		});
 	});
 });
-	
+	window.addEventListener('keydown', (event) => {
+		console.log(event.key);
+	})
 
 const getWeather = () => {
 	let CONFIG;
